@@ -1,0 +1,4469 @@
+{
+    "tables": {
+        "akkumulator": {
+            "name": "akkumulator",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "akkumulatorid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "data",
+            "fields": {
+                "akkumulatorid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "akkumulatortype": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "betegnelse": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "depotinstitusjondepinstid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "inkrement": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "nesteverdi": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "postfix": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "prefix": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "startverdi": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [
+                    "akkumulatorid",
+                    "akkumulatortype",
+                    "betegnelse",
+                    "depotinstitusjondepinstid",
+                    "inkrement",
+                    "nesteverdi",
+                    "postfix",
+                    "prefix",
+                    "startverdi"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "akkumulatorid",
+                    "akkumulatortype",
+                    "betegnelse",
+                    "depotinstitusjondepinstid",
+                    "inkrement",
+                    "nesteverdi",
+                    "postfix",
+                    "prefix",
+                    "startverdi"
+                ]
+            },
+            "relations": []
+        },
+        "aksesjon": {
+            "name": "aksesjon",
+            "icon": "lorry",
+            "label": "Aksesjoner",
+            "indexes": [],
+            "primary_key": [
+                "id"
+            ],
+            "foreign_keys": {
+                "depinst": {
+                    "name": "depinst",
+                    "local": [
+                        "depinst"
+                    ],
+                    "schema": "asta",
+                    "table": "depotinstitusjon",
+                    "foreign": [
+                        "depinstid"
+                    ]
+                },
+                "tilgangskode": {
+                    "name": "tilgangskode",
+                    "local": [
+                        "tilgangskode"
+                    ],
+                    "schema": "asta",
+                    "table": "tilgangskode",
+                    "foreign": [
+                        "tilgangskodeid"
+                    ]
+                },
+                "ansvarligavdeling": {
+                    "name": "ansvarligavdeling",
+                    "local": [
+                        "ansvarligavdeling"
+                    ],
+                    "schema": "asta",
+                    "table": "avdeling",
+                    "foreign": [
+                        "avdelingid"
+                    ]
+                },
+                "mottatt_fra": {
+                    "name": "mottatt_fra",
+                    "local": [
+                        "mottatt_fra"
+                    ],
+                    "schema": "asta",
+                    "table": "aktor",
+                    "foreign": [
+                        "aktorid"
+                    ]
+                },
+                "maaleenhet": {
+                    "name": "maaleenhet",
+                    "local": [
+                        "maaleenhet"
+                    ],
+                    "schema": "asta",
+                    "table": "maaleenhet",
+                    "foreign": [
+                        "maaleenhetid"
+                    ]
+                }
+            },
+            "filter": "tilgangskodeid IS NULL",
+            "description": null,
+            "type": "data",
+            "fields": {
+                "id": {
+                    "name": "aksesjonid",
+                    "label": "ID",
+                    "element": "input[type=text]"
+                },
+                "depinst": {
+                    "name": "depinstid",
+                    "label": "Depotinstitusjon",
+                    "element": "select",
+                    "description": null,
+                    "view": "depinst.navn"
+                },
+                "avtale": {
+                    "label": "Avtaler",
+                    "element": "textarea",
+                    "description": null
+                },
+                "identifikasjon": {
+                    "label": "Aksesjonnr.",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "tilgangskode": {
+                    "name": "tilgangskodeid",
+                    "label": "Tilgangskode",
+                    "element": "select",
+                    "description": null,
+                    "view": "tilgangskode.beskrivelse"
+                },
+                "ansvarligavdeling": {
+                    "label": "Avdeling",
+                    "element": "select",
+                    "description": null,
+                    "view": "ansvarligavdeling.navn"
+                },
+                "avleveringsaarsak": {
+                    "label": "Avleveringsårsak",
+                    "element": "textarea",
+                    "description": null
+                },
+                "mottattav": {
+                    "label": "Mottatt av",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "fagansvarlig": {
+                    "label": "Fagansvarlig",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "kvitteringsdato": {
+                    "label": "Kvitteringsdato",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "tidligereplassering": {
+                    "label": "Tidligere plassering",
+                    "element": "textarea",
+                    "description": null
+                },
+                "merknadtidlplassering": {
+                    "label": "Merknad tidligere plassering",
+                    "element": "textarea",
+                    "description": "Merk: Dette feltet vises ikke i brukergrensesnittet til Asta. Det var imidlertid med i Asta 3, og mange kan ha brukt dette feltet. Man ser altså i ikke info fra dette feltet i Asta 5, selv om det ligger i databasen."
+                },
+                "mottatt_fra": {
+                    "name": "mottattfraaktoraktorid",
+                    "label": "Mottatt fra",
+                    "element": "select",
+                    "description": null,
+                    "view": "mottatt_fra.navn"
+                },
+                "tilstand": {
+                    "label": "Tilstand",
+                    "element": "textarea",
+                    "description": null
+                },
+                "mottattdato": {
+                    "label": "mottatt dato",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "mottattsted": {
+                    "label": "Mottatt sted",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "saksnummer": {
+                    "label": "Saksnummer",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "merknad": {
+                    "label": "Beskrivelse",
+                    "element": "textarea",
+                    "description": null
+                },
+                "omfang": {
+                    "label": "Omfang",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "maaleenhet": {
+                    "name": "maaleenhetid",
+                    "label": "Måleenhet",
+                    "element": "select",
+                    "description": null,
+                    "view": "maaleenhet.betegnelse"
+                },
+                "endretav": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "endretdato": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "opprettetav": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "opprettetdato": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "teller": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [
+                    "identifikasjon",
+                    "kvitteringsdato",
+                    "mottatt_fra",
+                    "mottattdato",
+                    "saksnummer",
+                    "omfang"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "depinst",
+                    "identifikasjon",
+                    "avtale",
+                    "tilgangskode",
+                    "ansvarligavdeling",
+                    "mottattav",
+                    "avleveringsaarsak",
+                    "tidligereplassering",
+                    "kvitteringsdato",
+                    "fagansvarlig",
+                    "mottatt_fra",
+                    "tilstand",
+                    "merknadtidlplassering",
+                    "mottattdato",
+                    "mottattsted",
+                    "saksnummer",
+                    "merknad",
+                    "omfang",
+                    "maaleenhet",
+                    "opprettetav",
+                    "teller",
+                    "endretdato",
+                    "endretav",
+                    "opprettetdato"
+                ]
+            },
+            "relations": []
+        },
+        "aktaks": {
+            "name": "aktaks",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "aktaksid"
+            ],
+            "foreign_keys": {
+                "aksesjon": {
+                    "name": "aksesjon",
+                    "local": [
+                        "aksesjon"
+                    ],
+                    "schema": "asta",
+                    "table": "aksesjon",
+                    "foreign": [
+                        "id"
+                    ]
+                },
+                "aktor": {
+                    "name": "aktor",
+                    "local": [
+                        "aktor"
+                    ],
+                    "schema": "asta",
+                    "table": "aktor",
+                    "foreign": [
+                        "aktorid"
+                    ]
+                },
+                "relasjonstype": {
+                    "name": "relasjonstype",
+                    "local": [
+                        "relasjonstype"
+                    ],
+                    "schema": "asta",
+                    "table": "relasjonstype",
+                    "foreign": [
+                        "relasjonstypeid"
+                    ]
+                }
+            },
+            "filter": null,
+            "description": null,
+            "type": "data",
+            "fields": {
+                "aktaksid": {
+                    "label": "ID",
+                    "element": "input[type=text]"
+                },
+                "aksesjon": {
+                    "name": "aksesjonaksesjonid",
+                    "label": "Aksesjon",
+                    "element": "select",
+                    "description": null,
+                    "view": "aksesjon.identifikasjon"
+                },
+                "aktor": {
+                    "name": "aktoraktorid",
+                    "label": null,
+                    "element": "select",
+                    "description": null,
+                    "view": "aktor.navn"
+                },
+                "relasjonstype": {
+                    "name": "relasjonstyperelasjonstypeid",
+                    "view": "relasjonstype.henviserfra"
+                }
+            },
+            "grid": {
+                "columns": [
+                    "aksesjon",
+                    "aktor",
+                    "relasjonstype"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "aksesjon",
+                    "aktor",
+                    "relasjonstype"
+                ]
+            },
+            "relations": []
+        },
+        "aktnaer": {
+            "name": "aktnaer",
+            "label": "Aktør - næring kobling",
+            "indexes": [],
+            "primary_key": [
+                "aktnaerid"
+            ],
+            "foreign_keys": {
+                "aktor": {
+                    "name": "aktor",
+                    "local": [
+                        "aktor"
+                    ],
+                    "schema": "asta",
+                    "table": "aktor",
+                    "foreign": [
+                        "aktorid"
+                    ]
+                },
+                "naeringskategori": {
+                    "name": "naeringskategori",
+                    "local": [
+                        "naeringskategori"
+                    ],
+                    "schema": "asta",
+                    "table": "naeringskategori",
+                    "foreign": [
+                        "naeringskategoriid"
+                    ]
+                }
+            },
+            "filter": null,
+            "description": null,
+            "type": "data",
+            "fields": {
+                "aktor": {
+                    "name": "aktoraktorid",
+                    "label": "Aktør",
+                    "element": "input[type=text]",
+                    "description": null,
+                    "view": "aktor.navn"
+                },
+                "naeringskategori": {
+                    "name": "naeringskategorikategoriid",
+                    "label": "Næringskategori",
+                    "element": "select",
+                    "description": null,
+                    "view": "naeringskategori.betegnelse"
+                },
+                "aktnaerid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [
+                    "aktor",
+                    "naeringskategori",
+                    "aktnaerid"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "aktnaerid",
+                    "aktor",
+                    "naeringskategori"
+                ]
+            },
+            "relations": []
+        },
+        "aktor": {
+            "name": "aktor",
+            "label": "Aktører",
+            "indexes": [],
+            "primary_key": [
+                "aktorid"
+            ],
+            "foreign_keys": {
+                "depinst": {
+                    "name": "depinst",
+                    "local": [
+                        "depinst"
+                    ],
+                    "schema": "asta",
+                    "table": "depotinstitusjon",
+                    "foreign": [
+                        "depinstid"
+                    ]
+                },
+                "samfunnssektor": {
+                    "name": "samfunnssektor",
+                    "local": [
+                        "samfunnssektor"
+                    ],
+                    "schema": "asta",
+                    "table": "samfunn",
+                    "foreign": [
+                        "sektorid"
+                    ]
+                },
+                "forvaltningsomraade": {
+                    "name": "forvaltningsomraade",
+                    "local": [
+                        "forvaltningsomraade"
+                    ],
+                    "schema": "asta",
+                    "table": "forvaltningsomraade",
+                    "foreign": [
+                        "id"
+                    ]
+                },
+                "datokvalitet": {
+                    "name": "datokvalitet",
+                    "local": [
+                        "datokvalitet"
+                    ],
+                    "schema": "asta",
+                    "table": "datokvalitet",
+                    "foreign": [
+                        "datokvalitetid"
+                    ]
+                },
+                "land": {
+                    "name": "land",
+                    "local": [
+                        "land"
+                    ],
+                    "schema": "asta",
+                    "table": "land",
+                    "foreign": [
+                        "landid"
+                    ]
+                },
+                "endretav": {
+                    "name": "endretav",
+                    "local": [
+                        "endretav"
+                    ],
+                    "schema": "asta",
+                    "table": "bruker",
+                    "foreign": [
+                        "brukerid"
+                    ]
+                },
+                "opprettetav": {
+                    "name": "opprettetav",
+                    "local": [
+                        "opprettetav"
+                    ],
+                    "schema": "asta",
+                    "table": "bruker",
+                    "foreign": [
+                        "brukerid"
+                    ]
+                }
+            },
+            "filter": "tilgangskode IS NULL",
+            "description": null,
+            "type": "data",
+            "fields": {
+                "aktorid": {
+                    "label": "Unik id",
+                    "extra": "auto_increment",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "depinst": {
+                    "name": "depinstid",
+                    "label": "Depotinstitusjon",
+                    "element": "select",
+                    "description": null,
+                    "view": "depinst.navn"
+                },
+                "hovedtype": {
+                    "label": "Type",
+                    "element": "select",
+                    "options": [
+                        {
+                            "value": "P",
+                            "label": "Person",
+                            "coltext": "Person"
+                        },
+                        {
+                            "value": "V",
+                            "label": "Virksomhet",
+                            "coltext": "Virksomhet"
+                        }
+                    ],
+                    "description": ""
+                },
+                "gateadresse": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "prosjekt": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "identifikator": {
+                    "label": "Id",
+                    "element": "input[type=text]",
+                    "description": ""
+                },
+                "samfunnssektor": {
+                    "label": "Samfunnssektor",
+                    "element": "select",
+                    "description": "",
+                    "view": "samfunnssektor.betegnelse"
+                },
+                "eksternid": {
+                    "label": "Ekstern id",
+                    "element": "input[type=text]",
+                    "attr": {
+                        "href": "http://www.nsd.uib.no/polsys/data/forvaltning/enhet/%s"
+                    },
+                    "description": null
+                },
+                "postnr": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "navn": {
+                    "label": "Navn",
+                    "element": "input[type=text]",
+                    "alternativt_sokefelt": "aktornavn.alternativtnavn",
+                    "description": ""
+                },
+                "lokalsignatur": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "poststed": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "startdato": {
+                    "label": "Fra dato",
+                    "element": "input[type=text]",
+                    "description": ""
+                },
+                "telefon": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "tilgangskode": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "forvaltningsomraade": {
+                    "name": "forvaltningsomraadeid",
+                    "label": "Forvaltningsområde",
+                    "element": "select",
+                    "description": "",
+                    "view": "forvaltningsomraade.betegnelse"
+                },
+                "sluttdato": {
+                    "label": "Til dato",
+                    "element": "input[type=text]",
+                    "separator": "-",
+                    "description": ""
+                },
+                "merknad": {
+                    "label": null,
+                    "element": "textarea",
+                    "description": null
+                },
+                "telefax": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "datokvalitet": {
+                    "label": null,
+                    "element": "select",
+                    "attr": {
+                        "width": "200px"
+                    },
+                    "description": null,
+                    "view": "datokvalitet.betegnelse"
+                },
+                "epostadresse": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "yrke": {
+                    "label": "Yrke",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "historikkbiografi": {
+                    "label": "Historikk",
+                    "element": "textarea",
+                    "attr": {
+                        "class": "markdown"
+                    },
+                    "description": ""
+                },
+                "internettadresse": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "kjoenn": {
+                    "label": "Kjønn",
+                    "element": "select",
+                    "description": null
+                },
+                "land": {
+                    "name": "landid",
+                    "label": "Land",
+                    "element": "select",
+                    "description": null,
+                    "view": "land.navn"
+                },
+                "omraade": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "gaardsbruksnrid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "endretav": {
+                    "label": null,
+                    "element": "auto_update",
+                    "description": null,
+                    "view": "endretav.navn",
+                    "expandable": false
+                },
+                "endretdato": {
+                    "label": null,
+                    "element": "auto_update",
+                    "description": null
+                },
+                "opprettetav": {
+                    "label": null,
+                    "element": "auto",
+                    "description": null,
+                    "view": "opprettetav.navn",
+                    "expandable": false
+                },
+                "opprettetdato": {
+                    "label": null,
+                    "element": "auto",
+                    "description": null
+                },
+                "kommunenr": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": {
+                    "ID": "identifikator",
+                    "Navn": "navn",
+                    "Fra dato": "startdato",
+                    "Til dato": "sluttdato"
+                },
+                "sort_columns": [
+                    "identifikator"
+                ]
+            },
+            "actions": [
+                {
+                    "label": "Eksporter EAC",
+                    "url": "eac_eksport/index.php",
+                    "communication": "submit"
+                }
+            ],
+            "form": {
+                "items": {
+                    "Hovedtype": "hovedtype",
+                    "Depotinst": "depinst",
+                    "ID": "identifikator",
+                    "Navn": "navn",
+                    "Periode": {
+                        "inline": true,
+                        "items": [
+                            "startdato",
+                            "sluttdato",
+                            "datokvalitet"
+                        ]
+                    },
+                    "Merknad": "merknad",
+                    "Historikk/biografi": "historikkbiografi",
+                    "Status": {
+                        "items": [
+                            "depinst"
+                        ]
+                    },
+                    "Samfunnsplassering": {
+                        "items": [
+                            "samfunnssektor",
+                            "forvaltningsomraade",
+                            "yrke",
+                            "kjoenn"
+                        ]
+                    },
+                    "Adresse/topografi": {
+                        "items": [
+                            "gateadresse",
+                            "postnr",
+                            "poststed",
+                            "telefon",
+                            "telefax",
+                            "epostadresse",
+                            "internettadresse",
+                            "kommunenr",
+                            "land",
+                            "omraade",
+                            "gaardsbruksnrid"
+                        ]
+                    },
+                    "Annet": {
+                        "items": [
+                            "prosjekt",
+                            "eksternid",
+                            "lokalsignatur",
+                            "tilgangskode"
+                        ]
+                    },
+                    "Opprettet av": "opprettetav",
+                    "Endret dato": "endretdato",
+                    "Endret av": "endretav",
+                    "Opprettet dato": "opprettetdato"
+                }
+            },
+            "relations": []
+        },
+        "aktorg": {
+            "name": "aktorg",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "aktorgid"
+            ],
+            "foreign_keys": {
+                "aktor": {
+                    "name": "aktor",
+                    "local": [
+                        "aktor"
+                    ],
+                    "schema": "asta",
+                    "table": "aktor",
+                    "foreign": [
+                        "aktorid"
+                    ]
+                },
+                "orgkategori": {
+                    "name": "orgkategori",
+                    "local": [
+                        "orgkategori"
+                    ],
+                    "schema": "asta",
+                    "table": "organisasjonskategori",
+                    "foreign": [
+                        "organisasjonskategoriid"
+                    ]
+                }
+            },
+            "filter": null,
+            "description": null,
+            "type": "data",
+            "fields": {
+                "aktor": {
+                    "name": "aktoraktorid",
+                    "label": "Aktør",
+                    "element": "input[type=text]",
+                    "description": null,
+                    "view": "aktor.navn"
+                },
+                "orgkategori": {
+                    "name": "orgkatorgkatid",
+                    "label": "Organisasjonskategori",
+                    "element": "select",
+                    "description": null,
+                    "view": "orgkategori.betegnelse"
+                },
+                "aktorgid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [
+                    "aktor",
+                    "orgkategori",
+                    "aktorgid"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "aktor",
+                    "aktorgid",
+                    "orgkategori"
+                ]
+            },
+            "relations": []
+        },
+        "aktornavn": {
+            "name": "aktornavn",
+            "label": "Aktørnavn",
+            "indexes": [],
+            "primary_key": [
+                "aktornavnid"
+            ],
+            "foreign_keys": {
+                "aktoraktorid": {
+                    "name": "aktoraktorid",
+                    "local": [
+                        "aktoraktorid"
+                    ],
+                    "schema": "asta",
+                    "table": "aktor",
+                    "foreign": [
+                        "aktorid"
+                    ]
+                }
+            },
+            "filter": null,
+            "description": null,
+            "type": "data",
+            "fields": {
+                "aktornavnid": {
+                    "label": "ID",
+                    "element": "input[type=text]"
+                },
+                "aktoraktorid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null,
+                    "view": null
+                },
+                "alternativtnavn": {
+                    "label": "Alternativt navn",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "fradato": {
+                    "label": "Fra dato",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "tildato": {
+                    "label": "Til dato",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "offisielt": {
+                    "label": "Offisielt",
+                    "element": "input[type=checkbox]",
+                    "description": null
+                },
+                "depinstid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [
+                    "aktoraktorid",
+                    "alternativtnavn",
+                    "fradato",
+                    "tildato",
+                    "offisielt"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "aktoraktorid",
+                    "alternativtnavn",
+                    "fradato",
+                    "tildato",
+                    "offisielt",
+                    "depinstid"
+                ]
+            },
+            "relations": []
+        },
+        "aktorrelasjon": {
+            "name": "aktorrelasjon",
+            "label": "Aktørrelasjoner",
+            "indexes": [],
+            "primary_key": [
+                "aktorrelasjonid"
+            ],
+            "foreign_keys": {
+                "fromaktor": {
+                    "name": "fromaktor",
+                    "local": [
+                        "fromaktor"
+                    ],
+                    "schema": "asta",
+                    "table": "aktor",
+                    "foreign": [
+                        "aktorid"
+                    ]
+                },
+                "toaktor": {
+                    "name": "toaktor",
+                    "local": [
+                        "toaktor"
+                    ],
+                    "schema": "asta",
+                    "table": "aktor",
+                    "foreign": [
+                        "aktorid"
+                    ]
+                },
+                "relasjonstype": {
+                    "name": "relasjonstype",
+                    "local": [
+                        "relasjonstype"
+                    ],
+                    "schema": "asta",
+                    "table": "relasjonstype",
+                    "foreign": [
+                        "relasjonstypeid"
+                    ],
+                    "filter": "relasjonstabell = 'AKTAKT'"
+                }
+            },
+            "filter": null,
+            "description": null,
+            "type": "data",
+            "fields": {
+                "aktorrelasjonid": {
+                    "label": "ID",
+                    "element": "input[type=text]"
+                },
+                "fromaktor": {
+                    "name": "fromaktoraktorid",
+                    "label": "Aktør (fra)",
+                    "element": "select",
+                    "description": null,
+                    "view": "fromaktor.navn"
+                },
+                "toaktor": {
+                    "name": "toaktoraktorid",
+                    "label": "Aktør (til)",
+                    "element": "select",
+                    "description": null,
+                    "view": "toaktor.navn"
+                },
+                "fraaar": {
+                    "label": "Fra dato",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "tilaar": {
+                    "label": "Til dato",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "relasjonstype": {
+                    "name": "relasjonstyperelasjonstypeid",
+                    "view": "relasjonstype.relasjonstekst"
+                }
+            },
+            "grid": {
+                "columns": [
+                    "relasjonstype",
+                    "fromaktor",
+                    "toaktor",
+                    "fraaar",
+                    "tilaar"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "relasjonstype",
+                    "fromaktor",
+                    "toaktor",
+                    "fraaar",
+                    "tilaar"
+                ]
+            },
+            "relations": []
+        },
+        "aktortype": {
+            "name": "aktortype",
+            "label": "Aktørtype",
+            "indexes": [],
+            "primary_key": [
+                "aktortypeid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "reference",
+            "fields": {
+                "aktortypeid": {
+                    "label": "",
+                    "element": "input[type=text]",
+                    "description": ""
+                },
+                "betegnelse": {
+                    "label": "",
+                    "element": "input[type=text]",
+                    "description": ""
+                },
+                "samfunnsektorid": {
+                    "label": "",
+                    "element": "input[type=text]",
+                    "description": ""
+                }
+            },
+            "grid": {
+                "columns": [
+                    "aktortypeid",
+                    "betegnelse",
+                    "samfunnsektorid"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "aktortypeid",
+                    "betegnelse",
+                    "samfunnsektorid"
+                ]
+            },
+            "relations": []
+        },
+        "akttil": {
+            "name": "akttil",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "akttilid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "data",
+            "fields": {
+                "aktoraktorid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "akttilid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "relasjonstype": {
+                    "name": "relasjonstyperelasjonstypeid"
+                },
+                "tilveksttilvekstid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [
+                    "aktoraktorid",
+                    "akttilid",
+                    "relasjonstype",
+                    "tilveksttilvekstid"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "aktoraktorid",
+                    "akttilid",
+                    "relasjonstype",
+                    "tilveksttilvekstid"
+                ]
+            },
+            "relations": []
+        },
+        "arkakt": {
+            "name": "arkakt",
+            "label": "Relasjon aktør - arkivenhet",
+            "indexes": [],
+            "primary_key": [
+                "arkaktid"
+            ],
+            "foreign_keys": {
+                "arkivenhet": {
+                    "name": "arkivenhet",
+                    "local": [
+                        "arkivenhet"
+                    ],
+                    "schema": "asta",
+                    "table": "arkivenhet",
+                    "foreign": [
+                        "arkivenhetid"
+                    ]
+                },
+                "aktor": {
+                    "name": "aktor",
+                    "local": [
+                        "aktor"
+                    ],
+                    "schema": "asta",
+                    "table": "aktor",
+                    "foreign": [
+                        "aktorid"
+                    ]
+                }
+            },
+            "filter": null,
+            "description": null,
+            "type": "data",
+            "fields": {
+                "arkaktid": {
+                    "label": "ID",
+                    "element": "input[type=text]"
+                },
+                "arkivenhet": {
+                    "name": "arkivenhetarkivenhetid",
+                    "label": "Arkivenhet",
+                    "element": "select",
+                    "description": "",
+                    "view": "arkivenhet.navn"
+                },
+                "fradato": {
+                    "label": "Fra dato",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "tildato": {
+                    "label": "Til dato",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "aktor": {
+                    "name": "aktoraktorid",
+                    "label": "Aktør",
+                    "element": "select",
+                    "description": "",
+                    "view": "aktor.navn"
+                },
+                "merknad": {
+                    "label": null,
+                    "element": "textarea",
+                    "description": null
+                },
+                "relasjonstype": {
+                    "name": "relasjonstyperelasjonstypeid",
+                    "disabled_view": "relasjonstype.relasjonstekst",
+                    "element": "input[type=text]"
+                }
+            },
+            "grid": {
+                "columns": [
+                    "aktor",
+                    "arkivenhet"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "relasjonstype",
+                    "arkivenhet",
+                    "fradato",
+                    "tildato",
+                    "aktor",
+                    "merknad"
+                ]
+            },
+            "relations": []
+        },
+        "arkivenhet": {
+            "name": "arkivenhet",
+            "label": "Arkivenheter",
+            "indexes": [],
+            "primary_key": [
+                "arkivenhetid"
+            ],
+            "foreign_keys": {
+                "depotinstitusjon": {
+                    "name": "depotinstitusjon",
+                    "local": [
+                        "depotinstitusjon"
+                    ],
+                    "schema": "asta",
+                    "table": "depotinstitusjon",
+                    "foreign": [
+                        "depinstid"
+                    ]
+                },
+                "enhetstype": {
+                    "name": "enhetstype",
+                    "local": [
+                        "enhetstype"
+                    ],
+                    "schema": "asta",
+                    "table": "enhetstype",
+                    "foreign": [
+                        "enhetstypeid"
+                    ]
+                },
+                "ordningsgrad": {
+                    "name": "ordningsgrad",
+                    "local": [
+                        "ordningsgrad"
+                    ],
+                    "schema": "asta",
+                    "table": "ordningskategori",
+                    "foreign": [
+                        "ordningskategoriid"
+                    ]
+                },
+                "tilgangskode": {
+                    "name": "tilgangskode",
+                    "local": [
+                        "tilgangskode"
+                    ],
+                    "schema": "asta",
+                    "table": "tilgangskode",
+                    "foreign": [
+                        "tilgangskodeid"
+                    ]
+                },
+                "ordnetav": {
+                    "name": "ordnetav",
+                    "local": [
+                        "ordnetav"
+                    ],
+                    "schema": "asta",
+                    "table": "bruker",
+                    "foreign": [
+                        "brukerid"
+                    ]
+                },
+                "katalogisering": {
+                    "name": "katalogisering",
+                    "local": [
+                        "katalogisering"
+                    ],
+                    "schema": "asta",
+                    "table": "katalogiseringskode",
+                    "foreign": [
+                        "katalogiseringskodeid"
+                    ]
+                },
+                "katalogmedium": {
+                    "name": "katalogmedium",
+                    "local": [
+                        "katalogmedium"
+                    ],
+                    "schema": "asta",
+                    "table": "katalogmedium",
+                    "foreign": [
+                        "katalogmediumid"
+                    ]
+                },
+                "maaleenhet": {
+                    "name": "maaleenhet",
+                    "local": [
+                        "maaleenhet"
+                    ],
+                    "schema": "asta",
+                    "table": "maaleenhet",
+                    "foreign": [
+                        "maaleenhetid"
+                    ]
+                },
+                "lagringsenhet": {
+                    "name": "lagringsenhet",
+                    "local": [
+                        "lagringsenhet"
+                    ],
+                    "schema": "asta",
+                    "table": "lagringsenhet",
+                    "foreign": [
+                        "lagringsenhetid"
+                    ]
+                },
+                "fysisktilstand": {
+                    "name": "fysisktilstand",
+                    "local": [
+                        "fysisktilstand"
+                    ],
+                    "schema": "asta",
+                    "table": "fysisktilskategori",
+                    "foreign": [
+                        "fysisktilskategoriid"
+                    ]
+                },
+                "kassasjon": {
+                    "name": "kassasjon",
+                    "local": [
+                        "kassasjon"
+                    ],
+                    "schema": "asta",
+                    "table": "kassasjonskode",
+                    "foreign": [
+                        "kasskodeid"
+                    ]
+                },
+                "parent": {
+                    "name": "parent",
+                    "local": [
+                        "parent"
+                    ],
+                    "schema": "asta",
+                    "table": "arkivenhet",
+                    "foreign": [
+                        "arkivenhetid"
+                    ]
+                },
+                "datokvalitet": {
+                    "name": "datokvalitet",
+                    "local": [
+                        "datokvalitet"
+                    ],
+                    "schema": "asta",
+                    "table": "datokvalitet",
+                    "foreign": [
+                        "datokvalitetid"
+                    ]
+                },
+                "endretav": {
+                    "name": "endretav",
+                    "local": [
+                        "endretav"
+                    ],
+                    "schema": "asta",
+                    "table": "bruker",
+                    "foreign": [
+                        "brukerid"
+                    ]
+                }
+            },
+            "filter": "arkivenhet.tilgangskodeid IS NULL",
+            "description": null,
+            "type": "data",
+            "expansion_column": "navn",
+            "fields": {
+                "arkivenhetid": {
+                    "label": "Arkivenhetid",
+                    "element": "input",
+                    "description": "Unik id"
+                },
+                "depotinstitusjon": {
+                    "name": "depinstid",
+                    "label": "Depotinstitusjon",
+                    "element": "select",
+                    "description": null,
+                    "view": "depotinstitusjon.navn"
+                },
+                "enhetstype": {
+                    "name": "enhetstypeenhetstypeid",
+                    "label": "Type",
+                    "element": "select",
+                    "description": "",
+                    "view": "enhetstype.enhetsnavn"
+                },
+                "ordningsgrad": {
+                    "label": "Ordningsgrad",
+                    "element": "select",
+                    "description": null,
+                    "view": "ordningsgrad.betegnelse"
+                },
+                "tilgangskode": {
+                    "name": "tilgangskodeid",
+                    "label": "Tilgangskode",
+                    "element": "select",
+                    "description": null,
+                    "view": "tilgangskode.beskrivelse"
+                },
+                "identifikator": {
+                    "label": "Id",
+                    "element": "input[type=text]",
+                    "description": ""
+                },
+                "alternativenavn": {
+                    "label": "Alternative navn",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "ordnetav": {
+                    "label": "Ordnet av",
+                    "element": "select",
+                    "description": null,
+                    "view": "ordnetav.navn"
+                },
+                "navn": {
+                    "label": "Navn",
+                    "element": "input[type=text]",
+                    "description": ""
+                },
+                "alternativident": {
+                    "label": "Alternativ id",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "ordnetdato": {
+                    "label": "Ordnet dato",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "startdato": {
+                    "label": "Fra dato",
+                    "element": "input[type=text]",
+                    "description": ""
+                },
+                "katalogisering": {
+                    "label": "Katalogisering",
+                    "element": "select",
+                    "description": null,
+                    "view": "katalogisering.betegnelse"
+                },
+                "omfang": {
+                    "label": "Omfang",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "sluttdato": {
+                    "label": "Til dato",
+                    "element": "input[type=text]",
+                    "description": ""
+                },
+                "katalogmedium": {
+                    "label": "Katalogmedium",
+                    "element": "select",
+                    "description": null,
+                    "view": "katalogmedium.betegnelse"
+                },
+                "maaleenhet": {
+                    "name": "maleenhetid",
+                    "label": "Måleenhet",
+                    "element": "select",
+                    "description": null,
+                    "view": "maaleenhet.betegnelse"
+                },
+                "lagringsenhet": {
+                    "name": "lagringsenhetlagringsenhetid",
+                    "label": "Lag.enh.",
+                    "element": "input[type=text]",
+                    "description": "",
+                    "view": null
+                },
+                "katalogreferanse": {
+                    "label": "Katalogreferanse",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "omfangsmerknad": {
+                    "label": "Merknad til omfang",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "erarkivlaast": {
+                    "label": "Låst",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "fysisktilstand": {
+                    "name": "fysisktilstandid",
+                    "label": "Fysisk tilstand",
+                    "element": "select",
+                    "description": null,
+                    "view": "fysisktilstand.betegnelse"
+                },
+                "beskrivelsefysisktilstand": {
+                    "label": "Beskr. fysisk tilstand",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "kassasjon": {
+                    "name": "kassasjonskodeid",
+                    "label": "Kassasjonskode",
+                    "element": "select",
+                    "description": null,
+                    "view": "kassasjon.betegnelse"
+                },
+                "planlagtkonservering": {
+                    "label": "Planlagt konservering",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "bevaringstid": {
+                    "label": "Bevaringstid",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "kassasjonsar": {
+                    "label": "Kassasjonsår",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "merknad": {
+                    "label": "Merknad",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "parent": {
+                    "name": "parentarkivenhetarkivenhetid",
+                    "default": 1,
+                    "label": "Underlagt",
+                    "element": "select",
+                    "description": "",
+                    "view": "parent.identifikator || ' ' || parent.navn"
+                },
+                "arkivkodefra": {
+                    "label": "Fra arkivkode",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "arkivkodetil": {
+                    "label": "Til arkivkode",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "arkivtype": {
+                    "label": "Depotstatus",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "datokvalitet": {
+                    "label": "Datokvalitet",
+                    "element": "select",
+                    "description": null,
+                    "view": "datokvalitet.betegnelse"
+                },
+                "endretav": {
+                    "label": "Endret av",
+                    "element": "auto_edit",
+                    "description": null,
+                    "view": "endretav.navn"
+                },
+                "innhold": {
+                    "label": "Innhold",
+                    "element": "textarea",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": {
+                    "Type": "enhetstype",
+                    "ID": "identifikator",
+                    "Navn": "navn",
+                    "Fra dato": "startdato",
+                    "Til dato": "sluttdato"
+                },
+                "sort_columns": [
+                    "identifikator"
+                ]
+            },
+            "actions": [
+                {
+                    "label": "Eksporter EAD",
+                    "url": "export_ead",
+                    "communication": "submit"
+                },
+                {
+                    "label": "Importer",
+                    "url": "/asta/import",
+                    "communication": "dialog"
+                },
+                {
+                    "label": "Etiketter",
+                    "url": "etiketter",
+                    "communication": "submit"
+                },
+                {
+                    "label": "Saksomslag",
+                    "url": "saksomslag",
+                    "communication": "submit"
+                }
+            ],
+            "form": {
+                "items": [
+                    "depotinstitusjon",
+                    "enhetstype",
+                    "erarkivlaast",
+                    "identifikator",
+                    {
+                        "label": "Arkivkoder",
+                        "inline": true,
+                        "items": [
+                            "arkivkodefra",
+                            "arkivkodetil"
+                        ]
+                    },
+                    "navn",
+                    {
+                        "label": "Periode",
+                        "inline": true,
+                        "items": [
+                            "startdato",
+                            "sluttdato",
+                            "datokvalitet"
+                        ]
+                    },
+                    "lagringsenhet",
+                    "innhold",
+                    "merknad",
+                    "endretav",
+                    "arkivtype",
+                    "alternativenavn",
+                    {
+                        "label": "Katalogisering",
+                        "items": [
+                            "ordningsgrad",
+                            "ordnetdato",
+                            "ordnetav",
+                            "katalogisering",
+                            "katalogmedium",
+                            "katalogreferanse"
+                        ]
+                    },
+                    {
+                        "label": "Tilstand",
+                        "items": [
+                            "fysisktilstand",
+                            "beskrivelsefysisktilstand",
+                            "planlagtkonservering"
+                        ]
+                    },
+                    {
+                        "label": "Annet",
+                        "items": [
+                            "alternativident",
+                            "tilgangskode",
+                            "omfang",
+                            "maaleenhet",
+                            "omfangsmerknad",
+                            "kassasjon",
+                            "bevaringstid",
+                            "kassasjonsar"
+                        ]
+                    }
+                ]
+            },
+            "relations": {
+                "underliggende": {
+                    "table": "arkivenhet",
+                    "foreign_key": "parent"
+                }
+            }
+        },
+        "arkivenhetlogg": {
+            "name": "arkivenhetlogg",
+            "label": "Arkivenhet - Logg",
+            "indexes": [],
+            "primary_key": [
+                "id"
+            ],
+            "foreign_keys": {
+                "arkivenhet": {
+                    "name": "arkivenhet",
+                    "local": [
+                        "arkivenhet"
+                    ],
+                    "schema": "asta",
+                    "table": "arkivenhet",
+                    "foreign": [
+                        "arkivenhetid"
+                    ]
+                },
+                "logg": {
+                    "name": "logg",
+                    "local": [
+                        "id"
+                    ],
+                    "schema": "asta",
+                    "table": "logg",
+                    "foreign": [
+                        "id"
+                    ]
+                }
+            },
+            "filter": null,
+            "description": null,
+            "type": "data",
+            "fields": {
+                "arkivenhet": {
+                    "name": "arkivenhet_arkivenhetid",
+                    "label": "Arkivenhet",
+                    "element": "input[type=text]",
+                    "description": null,
+                    "view": "arkivenhet.navn"
+                },
+                "id": {
+                    "name": "id",
+                    "label": "Loggid",
+                    "element": "select",
+                    "description": null,
+                    "view": "logg.tidspunkt || ' ' || merknad"
+                }
+            },
+            "grid": {
+                "columns": [
+                    "arkivenhet",
+                    "id"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "arkivenhet",
+                    "id"
+                ]
+            },
+            "relations": []
+        },
+        "arkivrelasjon": {
+            "name": "arkivrelasjon",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "arkivrelasjonid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "data",
+            "fields": {
+                "arkivrelasjonid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "fromarkivenhet": {
+                    "name": "fromarkivenhetarkivenhetid",
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "toarkivenhet": {
+                    "name": "toarkivenhetarkivenhetid",
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "relasjonstype": {
+                    "name": "relasjonstyperelasjonstypeid"
+                }
+            },
+            "grid": {
+                "columns": [],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "arkivrelasjonid",
+                    "fromarkivenhet",
+                    "relasjonstype",
+                    "toarkivenhet"
+                ]
+            },
+            "relations": []
+        },
+        "arkivtype": {
+            "name": "arkivtype",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "arkivtypeid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "reference",
+            "fields": {
+                "arkivtypeid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "beskrivelse": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [
+                    "arkivtypeid",
+                    "beskrivelse"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "arkivtypeid",
+                    "beskrivelse"
+                ]
+            },
+            "relations": []
+        },
+        "arkklaus": {
+            "name": "arkklaus",
+            "label": "Arkiver - klausuler",
+            "indexes": [],
+            "primary_key": [
+                "arkklausid"
+            ],
+            "foreign_keys": {
+                "arkivenhetarkivenhetid": {
+                    "name": "arkivenhetarkivenhetid",
+                    "local": [
+                        "arkivenhetarkivenhetid"
+                    ],
+                    "schema": "asta",
+                    "table": "arkivenhet",
+                    "foreign": [
+                        "arkivenhetid"
+                    ]
+                },
+                "klausul": {
+                    "name": "klausul",
+                    "local": [
+                        "klausul"
+                    ],
+                    "schema": "asta",
+                    "table": "klausul",
+                    "foreign": [
+                        "klausulid"
+                    ]
+                }
+            },
+            "filter": null,
+            "description": null,
+            "type": "data",
+            "fields": {
+                "ansvarligopphevet": {
+                    "label": "Ansvarlig for oppheving",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "arkivenhetarkivenhetid": {
+                    "label": "Arkivenhet",
+                    "element": "input[type=text]",
+                    "description": null,
+                    "view": null
+                },
+                "arkklausid": {
+                    "label": "ID",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "klausul": {
+                    "name": "klausulklausulid",
+                    "label": "Klausul",
+                    "element": "input[type=text]",
+                    "description": null,
+                    "view": null
+                },
+                "opphevesaar": {
+                    "label": "Oppheves år",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "opphevet": {
+                    "label": "Opphevet",
+                    "element": "input[type=checkbox]",
+                    "description": null
+                },
+                "opphevetdato": {
+                    "label": "Opphevet dato",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "type": {
+                    "label": "Klausultype",
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [
+                    "klausul",
+                    "opphevesaar",
+                    "type"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "ansvarligopphevet",
+                    "arkivenhetarkivenhetid",
+                    "arkklausid",
+                    "klausul",
+                    "opphevesaar",
+                    "opphevet",
+                    "opphevetdato",
+                    "type"
+                ]
+            },
+            "relations": []
+        },
+        "avdeling": {
+            "name": "avdeling",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "avdelingid"
+            ],
+            "foreign_keys": {
+                "underlagt": {
+                    "name": "underlagt",
+                    "local": [
+                        "underlagt"
+                    ],
+                    "schema": "asta",
+                    "table": "avdeling",
+                    "foreign": [
+                        "avdelingid"
+                    ]
+                }
+            },
+            "filter": null,
+            "description": null,
+            "type": "data",
+            "fields": {
+                "avdelingid": {
+                    "label": "ID",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "navn": {
+                    "label": "Navn",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "beskrivelse": {
+                    "label": "Beskrivelse",
+                    "element": "textarea",
+                    "description": null
+                },
+                "underlagt": {
+                    "name": "ermediavdelingid",
+                    "label": "Er med i avdeling",
+                    "element": "select",
+                    "description": null,
+                    "view": "underlagt.navn"
+                },
+                "akkumulatorarkivakkumulatorid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "aksesjonakkumulatorid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "aktoravdelingakkumulatorid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "lagringsenhakkumulatorid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "elagringsenhetakkumulatorid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [
+                    "elagringsenhetakkumulatorid",
+                    "avdelingid",
+                    "navn"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "avdelingid",
+                    "navn",
+                    "beskrivelse",
+                    "underlagt",
+                    "lagringsenhakkumulatorid",
+                    "elagringsenhetakkumulatorid",
+                    "aktoravdelingakkumulatorid",
+                    "aksesjonakkumulatorid",
+                    "akkumulatorarkivakkumulatorid"
+                ]
+            },
+            "relations": []
+        },
+        "bruker": {
+            "name": "bruker",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "brukerid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "data",
+            "fields": {
+                "astabruker": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "avdelingavdelingid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "brukerid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "depotinstitusjondepinstid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "haravdelingsansvar": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "harfagansvar": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "navn": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "passord": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "sluttdato": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "spraak": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "startdato": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [
+                    "astabruker",
+                    "avdelingavdelingid",
+                    "brukerid",
+                    "depotinstitusjondepinstid",
+                    "haravdelingsansvar",
+                    "harfagansvar",
+                    "navn",
+                    "passord",
+                    "sluttdato",
+                    "spraak",
+                    "startdato"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "astabruker",
+                    "spraak",
+                    "sluttdato",
+                    "passord",
+                    "navn",
+                    "harfagansvar",
+                    "haravdelingsansvar",
+                    "depotinstitusjondepinstid",
+                    "brukerid",
+                    "avdelingavdelingid",
+                    "startdato"
+                ]
+            },
+            "relations": []
+        },
+        "brukergruppe": {
+            "name": "brukergruppe",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "brukergruppeid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "reference",
+            "fields": {
+                "beskrivelse": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "brukergruppeid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "navn": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [
+                    "beskrivelse",
+                    "brukergruppeid",
+                    "navn"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "beskrivelse",
+                    "brukergruppeid",
+                    "navn"
+                ]
+            },
+            "relations": []
+        },
+        "brukerrolle": {
+            "name": "brukerrolle",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "id"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "data",
+            "fields": {
+                "bruker_brukerid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "id": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "rolle": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [
+                    "bruker_brukerid",
+                    "id",
+                    "rolle"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "bruker_brukerid",
+                    "id",
+                    "rolle"
+                ]
+            },
+            "relations": []
+        },
+        "brukertilgang": {
+            "name": "brukertilgang",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "tilgangskodetilgangskodeid",
+                "brukerebrukerid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "data",
+            "fields": {
+                "brukerebrukerid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "tilgangskodetilgangskodeid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [
+                    "brukerebrukerid",
+                    "tilgangskodetilgangskodeid"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "brukerebrukerid",
+                    "tilgangskodetilgangskodeid"
+                ]
+            },
+            "relations": []
+        },
+        "bunnmateriale": {
+            "name": "bunnmateriale",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "bunnmaterialeid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "reference",
+            "fields": {
+                "bunnmaterialeid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "bunnmaterialenavn": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "taibruk": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [
+                    "bunnmaterialeid",
+                    "bunnmaterialenavn",
+                    "taibruk"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "bunnmaterialeid",
+                    "bunnmaterialenavn",
+                    "taibruk"
+                ]
+            },
+            "relations": []
+        },
+        "datokvalitet": {
+            "name": "datokvalitet",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "datokvalitetid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "reference",
+            "fields": {
+                "betegnelse": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "datokvalitetid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "betegnelse",
+                    "datokvalitetid"
+                ]
+            },
+            "relations": []
+        },
+        "depot": {
+            "name": "depot",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "depotid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "data",
+            "fields": {
+                "beskrivelse": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "depotid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "sted": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [
+                    "beskrivelse",
+                    "depotid",
+                    "sted"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "beskrivelse",
+                    "depotid",
+                    "sted"
+                ]
+            },
+            "relations": []
+        },
+        "depotinstitusjon": {
+            "name": "depotinstitusjon",
+            "label": "Depotinstitusjon",
+            "indexes": [],
+            "primary_key": [
+                "depinstid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "data",
+            "fields": {
+                "depinstid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "epost": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "gateadresse": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "maksarkivenheterperbestilling": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "maksutlantilkunde": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "merknader": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "navn": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "nettadresse": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "postadresse": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "postnr": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "poststed": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "produksjonhovedkatalog": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "telefaks": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "telefon": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "urngenerator": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [
+                    "depinstid",
+                    "navn",
+                    "urngenerator"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "depinstid",
+                    "telefon",
+                    "telefaks",
+                    "produksjonhovedkatalog",
+                    "poststed",
+                    "postnr",
+                    "postadresse",
+                    "nettadresse",
+                    "navn",
+                    "merknader",
+                    "maksutlantilkunde",
+                    "maksarkivenheterperbestilling",
+                    "gateadresse",
+                    "epost",
+                    "urngenerator"
+                ]
+            },
+            "relations": []
+        },
+        "depotinstitusjon_depot": {
+            "name": "depotinstitusjon_depot",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "depotinstitusjondepinstid",
+                "depotdepotid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "data",
+            "fields": {
+                "depotdepotid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "depotinstitusjondepinstid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [
+                    "depotdepotid",
+                    "depotinstitusjondepinstid"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "depotdepotid",
+                    "depotinstitusjondepinstid"
+                ]
+            },
+            "relations": []
+        },
+        "enhetstype": {
+            "name": "enhetstype",
+            "label": "Type",
+            "indexes": [],
+            "primary_key": [
+                "enhetstypeid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "reference",
+            "fields": {
+                "enhetsnavn": {
+                    "label": "Betegnelse",
+                    "element": "input[type=text]",
+                    "description": ""
+                },
+                "enhetstypeid": {
+                    "label": "Id",
+                    "element": "input[type=text]",
+                    "description": ""
+                },
+                "antsiffer": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "beskrivelse": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "rangering": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "sortering": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "typetabell": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "underselv": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [
+                    "enhetstypeid",
+                    "enhetsnavn"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "antsiffer",
+                    "beskrivelse",
+                    "enhetsnavn",
+                    "enhetstypeid",
+                    "rangering",
+                    "sortering",
+                    "typetabell",
+                    "underselv"
+                ]
+            },
+            "relations": []
+        },
+        "forvaltning": {
+            "name": "forvaltning",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "samfunnsektorid",
+                "nivaaid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "reference",
+            "fields": {
+                "betegnelse": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "nivaaid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "samfunnsektorid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "betegnelse",
+                    "nivaaid",
+                    "samfunnsektorid"
+                ]
+            },
+            "relations": []
+        },
+        "forvaltningsomraade": {
+            "name": "forvaltningsomraade",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "id"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "reference",
+            "fields": {
+                "betegnelse": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "id": {
+                    "name": "forvaltningsomraadeid",
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [
+                    "betegnelse",
+                    "id"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "betegnelse",
+                    "id"
+                ]
+            },
+            "relations": []
+        },
+        "fysisktilskategori": {
+            "name": "fysisktilskategori",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "fysisktilskategoriid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "reference",
+            "fields": {
+                "betegnelse": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "fysisktilskategoriid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "betegnelse",
+                    "fysisktilskategoriid"
+                ]
+            },
+            "relations": []
+        },
+        "hjemmel": {
+            "name": "hjemmel",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "hjemmelid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "reference",
+            "fields": {
+                "beskrivelse": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "hjemmelid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "beskrivelse",
+                    "hjemmelid"
+                ]
+            },
+            "relations": []
+        },
+        "kassasjonskode": {
+            "name": "kassasjonskode",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "kasskodeid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "reference",
+            "fields": {
+                "betegnelse": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "kasskodeid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "betegnelse",
+                    "kasskodeid"
+                ]
+            },
+            "relations": []
+        },
+        "katalogiseringskode": {
+            "name": "katalogiseringskode",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "katalogiseringskodeid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "reference",
+            "fields": {
+                "betegnelse": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "katalogiseringskodeid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "betegnelse",
+                    "katalogiseringskodeid"
+                ]
+            },
+            "relations": []
+        },
+        "katalogmedium": {
+            "name": "katalogmedium",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "katalogmediumid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "reference",
+            "fields": {
+                "betegnelse": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "katalogmediumid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "betegnelse",
+                    "katalogmediumid"
+                ]
+            },
+            "relations": []
+        },
+        "kjoenn": {
+            "name": "kjoenn",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "id"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "reference",
+            "fields": {
+                "betegnelse": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "id": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "betegnelse",
+                    "id"
+                ]
+            },
+            "relations": []
+        },
+        "klausul": {
+            "name": "klausul",
+            "label": "Klausul",
+            "indexes": [],
+            "primary_key": [
+                "klausulid"
+            ],
+            "foreign_keys": {
+                "arkivenhet": {
+                    "name": "arkivenhet",
+                    "local": [
+                        "arkivenhet"
+                    ],
+                    "schema": "asta",
+                    "table": "arkivenhet",
+                    "foreign": [
+                        "arkivenhetid"
+                    ]
+                },
+                "klausulkategori": {
+                    "name": "klausulkategori",
+                    "local": [
+                        "kategori"
+                    ],
+                    "schema": "asta",
+                    "table": "klausulkategori",
+                    "foreign": [
+                        "klausulkategoriid"
+                    ]
+                },
+                "hjemmel": {
+                    "name": "hjemmel",
+                    "local": [
+                        "hjemmel"
+                    ],
+                    "schema": "asta",
+                    "table": "hjemmel",
+                    "foreign": [
+                        "hjemmelid"
+                    ]
+                }
+            },
+            "filter": null,
+            "description": null,
+            "type": "data",
+            "fields": {
+                "klausulid": {
+                    "label": "ID",
+                    "element": "input[type=text]"
+                },
+                "arkivenhet": {
+                    "name": "arkivenhetarkivenhetid",
+                    "label": "Tilhører arkiv",
+                    "element": "select",
+                    "description": null,
+                    "view": "arkivenhet.navn"
+                },
+                "kategori": {
+                    "name": "klausulkategoriid",
+                    "label": "Kategori",
+                    "element": "select",
+                    "description": null,
+                    "view": "klausulkategori.betegnelse"
+                },
+                "hjemmel": {
+                    "label": "Hjemmel",
+                    "element": "select",
+                    "description": null,
+                    "view": "hjemmel.beskrivelse"
+                },
+                "antallaar": {
+                    "label": "Antall år",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "merknad": {
+                    "label": "Merknad",
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [
+                    "kategori",
+                    "hjemmel",
+                    "antallaar"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "arkivenhet",
+                    "kategori",
+                    "hjemmel",
+                    "antallaar",
+                    "merknad"
+                ]
+            },
+            "relations": []
+        },
+        "klausulkategori": {
+            "name": "klausulkategori",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "klausulkategoriid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "reference",
+            "fields": {
+                "betegnelse": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "klausulkategoriid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "betegnelse",
+                    "klausulkategoriid"
+                ]
+            },
+            "relations": []
+        },
+        "kommune": {
+            "name": "kommune",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "kommunenr"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "reference",
+            "fields": {
+                "kommunenavn": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "kommunenr": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "kommunenavn",
+                    "kommunenr"
+                ]
+            },
+            "relations": []
+        },
+        "lagringsenhet": {
+            "name": "lagringsenhet",
+            "label": "Lagringsenhet",
+            "indexes": [],
+            "primary_key": [
+                "lagringsenhetid"
+            ],
+            "foreign_keys": {
+                "enhetstype": {
+                    "name": "enhetstype",
+                    "local": [
+                        "enhetstype"
+                    ],
+                    "schema": "asta",
+                    "table": "enhetstype",
+                    "foreign": [
+                        "enhetstypeid"
+                    ]
+                },
+                "nrinnenarkenhetid": {
+                    "name": "nrinnenarkenhetid",
+                    "local": [
+                        "nrinnenarkenhetid"
+                    ],
+                    "schema": "asta",
+                    "table": "arkivenhet",
+                    "foreign": [
+                        "arkivenhetid"
+                    ]
+                }
+            },
+            "filter": null,
+            "description": null,
+            "type": "data",
+            "fields": {
+                "lagringsenhetid": {
+                    "label": "ID",
+                    "element": "input[type=text]"
+                },
+                "enhetstype": {
+                    "name": "enhetstypeenhetstypeid",
+                    "label": "Type",
+                    "element": "input[type=text]",
+                    "description": "",
+                    "view": "enhetstype.enhetsnavn"
+                },
+                "identifikasjon": {
+                    "label": "Nummer",
+                    "element": "input[type=text]",
+                    "description": ""
+                },
+                "magasinkode": {
+                    "label": "Mag",
+                    "element": "input[type=text]",
+                    "description": ""
+                },
+                "reolnummer": {
+                    "label": "Reol",
+                    "element": "input[type=text]",
+                    "description": ""
+                },
+                "fagnummer": {
+                    "label": "Fag",
+                    "element": "input[type=text]",
+                    "description": ""
+                },
+                "hyllenr": {
+                    "label": "Hylle",
+                    "element": "input[type=text]",
+                    "description": ""
+                },
+                "nrinnenarkenhetid": {
+                    "label": "Serie",
+                    "element": "input[type=text]",
+                    "description": "",
+                    "view": null
+                },
+                "depinstid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "depotid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "endretav": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "endretdato": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "hyllehylleid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "navn": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "opprettetav": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "opprettetdato": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "rotnode": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [
+                    "enhetstype",
+                    "identifikasjon",
+                    "magasinkode",
+                    "reolnummer",
+                    "fagnummer",
+                    "hyllenr"
+                ],
+                "sort_columns": [
+                    "identifikasjon"
+                ]
+            },
+            "form": {
+                "items": [
+                    "enhetstype",
+                    "identifikasjon",
+                    "magasinkode",
+                    "reolnummer",
+                    "fagnummer",
+                    "hyllenr",
+                    "opprettetav",
+                    "opprettetdato",
+                    "nrinnenarkenhetid",
+                    "navn",
+                    "depinstid",
+                    "hyllehylleid",
+                    "endretdato",
+                    "endretav",
+                    "depotid",
+                    "rotnode"
+                ]
+            },
+            "relations": []
+        },
+        "land": {
+            "name": "land",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "landid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "reference",
+            "fields": {
+                "landid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "navn": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "landid",
+                    "navn"
+                ]
+            },
+            "relations": []
+        },
+        "logg": {
+            "name": "logg",
+            "label": "Logg",
+            "indexes": [],
+            "primary_key": [
+                "id"
+            ],
+            "foreign_keys": {
+                "bruker": {
+                    "name": "bruker",
+                    "local": [
+                        "bruker"
+                    ],
+                    "schema": "asta",
+                    "table": "bruker",
+                    "foreign": [
+                        "brukerid"
+                    ]
+                },
+                "kategori": {
+                    "name": "kategori",
+                    "local": [
+                        "kategori"
+                    ],
+                    "schema": "asta",
+                    "table": "loggkategori",
+                    "foreign": [
+                        "id"
+                    ]
+                }
+            },
+            "filter": null,
+            "description": null,
+            "type": "data",
+            "fields": {
+                "id": {
+                    "label": "ID",
+                    "element": "input[type=text]"
+                },
+                "bruker": {
+                    "name": "bruker_brukerid",
+                    "label": "Bruker",
+                    "element": "input[type=text]",
+                    "description": null,
+                    "view": "bruker.navn"
+                },
+                "kategori": {
+                    "name": "kategori_id",
+                    "label": "Kategori",
+                    "element": "select",
+                    "description": null,
+                    "view": "kategori.navn"
+                },
+                "merknad": {
+                    "label": "Merknad",
+                    "element": "textarea",
+                    "description": null
+                },
+                "tidspunkt": {
+                    "label": "Tidspunkt",
+                    "element": "auto",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [
+                    "bruker",
+                    "kategori",
+                    "merknad",
+                    "tidspunkt"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "bruker",
+                    "kategori",
+                    "merknad",
+                    "tidspunkt"
+                ]
+            },
+            "relations": []
+        },
+        "loggkategori": {
+            "name": "loggkategori",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "id"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "reference",
+            "fields": {
+                "id": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "initiering": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "navn": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [
+                    "id",
+                    "initiering",
+                    "navn"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "id",
+                    "initiering",
+                    "navn"
+                ]
+            },
+            "relations": []
+        },
+        "motiv": {
+            "name": "motiv",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "arkivenhet"
+            ],
+            "foreign_keys": {
+                "motivtype": {
+                    "name": "motivtype",
+                    "local": [
+                        "motivtype"
+                    ],
+                    "schema": "asta",
+                    "table": "motivtype",
+                    "foreign": [
+                        "motivtypeid"
+                    ]
+                }
+            },
+            "filter": null,
+            "description": null,
+            "type": "data",
+            "fields": {
+                "arkivenhet": {
+                    "name": "arkivenhetarkivenhetid",
+                    "element": "input[type=text]"
+                },
+                "kontekst": {
+                    "label": "Kontekst",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "merknad": {
+                    "label": "Merknad",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "motivtype": {
+                    "name": "motivtypeid",
+                    "label": "Motivtype",
+                    "element": "input[type=text]",
+                    "description": null,
+                    "view": "motivtype.betegnelse"
+                },
+                "paskrift": {
+                    "label": "Påskrift",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "personer": {
+                    "label": "Personer",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "prosjekt": {
+                    "label": "Prosjekt",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "signatur": {
+                    "label": "Signatur",
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "kontekst",
+                    "merknad",
+                    "motivtype",
+                    "paskrift",
+                    "personer",
+                    "prosjekt",
+                    "signatur"
+                ]
+            },
+            "relations": []
+        },
+        "motivtype": {
+            "name": "motivtype",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "motivtypeid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "reference",
+            "fields": {
+                "betegnelse": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "enhetstypeenhetstypeid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "motivtypeid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "betegnelse",
+                    "enhetstypeenhetstypeid",
+                    "motivtypeid"
+                ]
+            },
+            "relations": []
+        },
+        "maaleenhet": {
+            "name": "maaleenhet",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "maaleenhetid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "reference",
+            "fields": {
+                "betegnelse": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "maaleenhetid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "betegnelse",
+                    "maaleenhetid"
+                ]
+            },
+            "relations": []
+        },
+        "naeringskategori": {
+            "name": "naeringskategori",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "naeringskategoriid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "reference",
+            "fields": {
+                "betegnelse": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "naeringskategoriid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [
+                    "betegnelse",
+                    "naeringskategoriid"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "betegnelse",
+                    "naeringskategoriid"
+                ]
+            },
+            "relations": []
+        },
+        "objekttilgang": {
+            "name": "objekttilgang",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "objekttilgangid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "data",
+            "fields": {
+                "brukerbrukerid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "identifikator": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "navn": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "objektid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "objekttilgangid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "objekttypeobjekttypeid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [
+                    "brukerbrukerid",
+                    "identifikator",
+                    "navn",
+                    "objektid",
+                    "objekttilgangid",
+                    "objekttypeobjekttypeid"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "brukerbrukerid",
+                    "identifikator",
+                    "navn",
+                    "objektid",
+                    "objekttilgangid",
+                    "objekttypeobjekttypeid"
+                ]
+            },
+            "relations": []
+        },
+        "ordningskategori": {
+            "name": "ordningskategori",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "ordningskategoriid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "reference",
+            "fields": {
+                "betegnelse": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "ordningskategoriid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "betegnelse",
+                    "ordningskategoriid"
+                ]
+            },
+            "relations": []
+        },
+        "organisasjonskategori": {
+            "name": "organisasjonskategori",
+            "label": "Organisasjonskategorier",
+            "indexes": [],
+            "primary_key": [
+                "organisasjonskategoriid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "reference",
+            "fields": {
+                "betegnelse": {
+                    "label": "Betegnelse",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "organisasjonskategoriid": {
+                    "label": "ID",
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [
+                    "betegnelse",
+                    "organisasjonskategoriid"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "betegnelse",
+                    "organisasjonskategoriid"
+                ]
+            },
+            "relations": []
+        },
+        "relasjonstype": {
+            "name": "relasjonstype",
+            "label": "Relasjonstype",
+            "indexes": [],
+            "primary_key": [
+                "relasjonstypeid"
+            ],
+            "foreign_keys": [],
+            "type": "reference",
+            "fields": {
+                "relasjonstypeid": {
+                    "label": "ID",
+                    "element": "input[type=text]"
+                },
+                "relasjonstabell": {
+                    "label": "Relasjonstabell",
+                    "element": "input[type=text]"
+                },
+                "typerelasjon": {
+                    "label": "Type",
+                    "element": "input[type=text]"
+                },
+                "relasjonsnavn": {
+                    "label": "Navn",
+                    "element": "input[type=text]"
+                },
+                "beskrivelse": {
+                    "label": "Beskrivelse",
+                    "element": "input[type=text]"
+                },
+                "heviser_fra": {
+                    "label": "Henviser fra",
+                    "element": "input[type=text]"
+                },
+                "henviser_til": {
+                    "label": "Henviser til",
+                    "element": "input[type=text]"
+                },
+                "sortering": {
+                    "label": "Sortering",
+                    "element": "input[type=text]"
+                }
+            },
+            "relations": []
+        },
+        "samfunn": {
+            "name": "samfunn",
+            "label": "Samfunnssektor",
+            "indexes": [],
+            "primary_key": [
+                "sektorid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "reference",
+            "fields": {
+                "betegnelse": {
+                    "label": "Betegnelse",
+                    "element": "input[type=text]",
+                    "description": ""
+                },
+                "sektorid": {
+                    "label": "ID",
+                    "element": "input[type=text]",
+                    "description": ""
+                }
+            },
+            "grid": {
+                "columns": [
+                    "betegnelse",
+                    "sektorid"
+                ],
+                "sort_columns": [
+                    "betegnelse"
+                ]
+            },
+            "form": {
+                "items": [
+                    "betegnelse",
+                    "sektorid"
+                ]
+            },
+            "relations": []
+        },
+        "sted": {
+            "name": "sted",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "arkivenhet"
+            ],
+            "foreign_keys": {
+                "fylke": {
+                    "name": "fylke",
+                    "local": [
+                        "fylke"
+                    ],
+                    "schema": "asta",
+                    "table": "kommune",
+                    "foreign": [
+                        "kommunenr"
+                    ],
+                    "filter": "RIGHT(kommunenr, 2) = '00'"
+                },
+                "land": {
+                    "name": "land",
+                    "local": [
+                        "land"
+                    ],
+                    "schema": "asta",
+                    "table": "land",
+                    "foreign": [
+                        "landid"
+                    ]
+                }
+            },
+            "filter": null,
+            "description": null,
+            "type": "data",
+            "fields": {
+                "arkivenhet": {
+                    "name": "arkivenhetarkivenhetid",
+                    "element": "input[type=text]"
+                },
+                "adresse": {
+                    "label": "Adresse",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "omraade": {
+                    "label": "Område",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "fylke": {
+                    "name": "fylkenr",
+                    "label": "Fylke",
+                    "element": "select",
+                    "description": null,
+                    "view": "fylke.kommunenavn"
+                },
+                "land": {
+                    "name": "landid",
+                    "label": "Land",
+                    "element": "select",
+                    "description": null,
+                    "view": "land.navn"
+                },
+                "gaardsbruksnrid": {
+                    "label": "Gårds-/bruksnr.",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "kartkoordinatoest": {
+                    "label": "Kartkoordinat øst",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "kartkoordinatnord": {
+                    "label": "Kartkoordinat nord",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "utmsoneid": {
+                    "label": "UTM-sone",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "merknad": {
+                    "label": "Merknad",
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "adresse",
+                    "omraade",
+                    "fylke",
+                    "land",
+                    "gaardsbruksnrid",
+                    "kartkoordinatoest",
+                    "kartkoordinatnord",
+                    "utmsoneid",
+                    "merknad"
+                ]
+            },
+            "relations": []
+        },
+        "teknikk": {
+            "name": "teknikk",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "arkivenhet"
+            ],
+            "foreign_keys": {
+                "bunnmateriale": {
+                    "name": "bunnmateriale",
+                    "local": [
+                        "bunnmateriale"
+                    ],
+                    "schema": "asta",
+                    "table": "bunnmateriale",
+                    "foreign": [
+                        "bunnmaterialeid"
+                    ]
+                },
+                "teknikktype": {
+                    "name": "teknikktype",
+                    "local": [
+                        "teknikktype"
+                    ],
+                    "schema": "asta",
+                    "table": "teknikktype",
+                    "foreign": [
+                        "teknikktypeid"
+                    ]
+                }
+            },
+            "filter": null,
+            "description": null,
+            "type": "data",
+            "fields": {
+                "arkivenhet": {
+                    "name": "arkivenhetarkivenhetid",
+                    "element": "input[type=text]"
+                },
+                "bunnmateriale": {
+                    "name": "bunnmaterialeid",
+                    "label": "Bunnmateriale",
+                    "element": "select",
+                    "description": null,
+                    "view": "bunnmateriale.bunnmaterialenavn"
+                },
+                "teknikktype": {
+                    "name": "teknikktypeid",
+                    "label": "Teknikk",
+                    "element": "select",
+                    "description": null,
+                    "view": "teknikktype.betegnelse"
+                },
+                "fargebilde": {
+                    "label": "Fargebilde",
+                    "element": "select",
+                    "description": null
+                },
+                "storrelse": {
+                    "label": "Størrelse",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "malestokk": {
+                    "label": "Målestokk",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "merknad": {
+                    "label": "Merknad",
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "bunnmateriale",
+                    "teknikktype",
+                    "fargebilde",
+                    "storrelse",
+                    "malestokk",
+                    "merknad"
+                ]
+            },
+            "relations": []
+        },
+        "teknikktype": {
+            "name": "teknikktype",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "teknikktypeid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "reference",
+            "fields": {
+                "betegnelse": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "teknikktypeid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "betegnelse",
+                    "teknikktypeid"
+                ]
+            },
+            "relations": []
+        },
+        "tilgangskode": {
+            "name": "tilgangskode",
+            "label": null,
+            "indexes": [],
+            "primary_key": [
+                "tilgangskodeid"
+            ],
+            "foreign_keys": [],
+            "filter": null,
+            "description": null,
+            "type": "reference",
+            "fields": {
+                "beskrivelse": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "tilgangskodeid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "beskrivelse",
+                    "tilgangskodeid"
+                ]
+            },
+            "relations": []
+        },
+        "tilvekst": {
+            "name": "tilvekst",
+            "label": "Tilvekster",
+            "indexes": [],
+            "primary_key": [
+                "tilvekstid"
+            ],
+            "foreign_keys": {
+                "ordningskategori": {
+                    "name": "ordningskategori",
+                    "local": [
+                        "ordningskategori"
+                    ],
+                    "schema": "asta",
+                    "table": "ordningskategori",
+                    "foreign": [
+                        "ordningskategoriid"
+                    ]
+                },
+                "aksesjon": {
+                    "name": "aksesjon",
+                    "local": [
+                        "aksesjon"
+                    ],
+                    "schema": "asta",
+                    "table": "aksesjon",
+                    "foreign": [
+                        "id"
+                    ]
+                },
+                "ansvarligavdeling": {
+                    "name": "ansvarligavdeling",
+                    "local": [
+                        "ansvarligavdeling"
+                    ],
+                    "schema": "asta",
+                    "table": "avdeling",
+                    "foreign": [
+                        "avdelingid"
+                    ]
+                },
+                "katalogiseringskode": {
+                    "name": "katalogiseringskode",
+                    "local": [
+                        "katalogiseringskode"
+                    ],
+                    "schema": "asta",
+                    "table": "katalogiseringskode",
+                    "foreign": [
+                        "katalogiseringskodeid"
+                    ]
+                },
+                "katalogmedium": {
+                    "name": "katalogmedium",
+                    "local": [
+                        "katalogmedium"
+                    ],
+                    "schema": "asta",
+                    "table": "katalogmedium",
+                    "foreign": [
+                        "katalogmediumid"
+                    ]
+                },
+                "arkiv": {
+                    "name": "arkiv",
+                    "local": [
+                        "arkiv"
+                    ],
+                    "schema": "asta",
+                    "table": "arkivenhet",
+                    "foreign": [
+                        "arkivenhetid"
+                    ]
+                },
+                "maaleenhet": {
+                    "name": "maaleenhet",
+                    "local": [
+                        "maaleenhet"
+                    ],
+                    "schema": "asta",
+                    "table": "maaleenhet",
+                    "foreign": [
+                        "maaleenhetid"
+                    ]
+                }
+            },
+            "filter": "tilgangskodeid IS NULL",
+            "description": null,
+            "type": "data",
+            "fields": {
+                "ordningskategori": {
+                    "name": "ordningskategoriid",
+                    "label": "Ordningsgrad",
+                    "element": "select",
+                    "description": null,
+                    "view": "ordningskategori.betegnelse"
+                },
+                "aksesjon": {
+                    "name": "aksesjonaksesjonid",
+                    "label": "Aksesjon",
+                    "element": "select",
+                    "description": null,
+                    "view": "aksesjon.identifikasjon"
+                },
+                "ordnetav": {
+                    "label": "Ordnet av",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "identifikasjon": {
+                    "label": "Tilvekstnr",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "ordnetdato": {
+                    "label": "Ordnet dato",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "ansvarligavdeling": {
+                    "label": "Avdeling",
+                    "element": "select",
+                    "description": null,
+                    "view": "ansvarligavdeling.navn"
+                },
+                "katalogiseringskode": {
+                    "name": "katalogiseringskodeid",
+                    "label": "Katalogisering",
+                    "element": "select",
+                    "description": null,
+                    "view": "katalogiseringskode.betegnelse"
+                },
+                "fagansvarlig": {
+                    "label": "Fagansvarlig",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "katalogmedium": {
+                    "name": "katalogmediumid",
+                    "label": "Katalogmedium",
+                    "element": "select",
+                    "description": null,
+                    "view": "katalogmedium.betegnelse"
+                },
+                "arkiv": {
+                    "name": "arkivarkivenhetid",
+                    "label": "Arkiv",
+                    "element": "input[type=text]",
+                    "description": null,
+                    "view": "arkiv.navn"
+                },
+                "innlemmet": {
+                    "label": "Innlemmet",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "merknad": {
+                    "label": "Innhold",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "omfang": {
+                    "label": "Omfang",
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "maaleenhet": {
+                    "name": "maaleenhetid",
+                    "label": "Måleenhet",
+                    "element": "input[type=text]",
+                    "description": null,
+                    "view": "maaleenhet.betegnelse"
+                },
+                "avtale": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "datokvalitet": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "depinstid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "endretav": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "endretdato": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "kvitteringsdato": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "opprettetav": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "opprettetdato": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "sluttdato": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "startdato": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "tilgangskodeid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                },
+                "tilvekstid": {
+                    "label": null,
+                    "element": "input[type=text]",
+                    "description": null
+                }
+            },
+            "grid": {
+                "columns": [
+                    "kvitteringsdato",
+                    "identifikasjon",
+                    "arkiv",
+                    "merknad",
+                    "omfang",
+                    "maaleenhet"
+                ],
+                "sort_columns": []
+            },
+            "form": {
+                "items": [
+                    "ordningskategori",
+                    "aksesjon",
+                    "ordnetav",
+                    "identifikasjon",
+                    "ordnetdato",
+                    "katalogiseringskode",
+                    "ansvarligavdeling",
+                    "fagansvarlig",
+                    "katalogmedium",
+                    "arkiv",
+                    "innlemmet",
+                    "merknad",
+                    "omfang",
+                    "maaleenhet",
+                    "sluttdato",
+                    "tilgangskodeid",
+                    "startdato",
+                    "opprettetdato",
+                    "opprettetav",
+                    "kvitteringsdato",
+                    "endretdato",
+                    "endretav",
+                    "depinstid",
+                    "datokvalitet",
+                    "avtale",
+                    "tilvekstid"
+                ]
+            },
+            "relations": []
+        }
+    },
+    "contents": {
+        "Tabeller": {
+            "items": [
+                "tables.arkivenhet",
+                "tables.aktor",
+                "tables.aksesjon",
+                "tables.tilvekst"
+            ]
+        }
+    }
+}
